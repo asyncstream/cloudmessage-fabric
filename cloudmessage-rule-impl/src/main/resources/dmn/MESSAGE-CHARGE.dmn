@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1jjxd91" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.0.1">
+  <decision id="MESSAGE-CHARGE" name="Message Charging">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="License Type" camunda:inputVariable="licenseType">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1go5bxs" label="Message Count" camunda:inputVariable="messageCount">
+        <inputExpression id="LiteralExpression_1nnqxrb" typeRef="long">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Charge" name="charge" typeRef="double" />
+      <rule id="DecisionRule_0clck9k">
+        <inputEntry id="UnaryTests_07ivd7f">
+          <text>"LIC-FREE"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qupmll">
+          <text>&lt;= 100000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nezg11">
+          <text>0.0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nf1agh">
+        <inputEntry id="UnaryTests_1g61dsb">
+          <text>"LIC-GOLD"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16fryzg">
+          <text>&lt;= 1000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jy5i1l">
+          <text>0.0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0sa66yx">
+        <inputEntry id="UnaryTests_1mxkw53">
+          <text>"LIC-PREMIUM"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kg353w">
+          <text>&lt;= 5000000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19ly1dp">
+          <text>0.0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>
